@@ -1,0 +1,1 @@
+insert into BLOGGER (AGE, NAME ) values (21, 'Gyula')

@@ -32,20 +32,20 @@ public class HomeController {
     private ArrayList<Story> getStories(){
         ArrayList<Story> stories = new ArrayList<>();
 
-        Story story1 = new Story();
-        story1.setTitle("Első sztori");
-        story1.setPosted(new Date());
-        story1.setAuthor("Én");
-        story1.setContent("<p>Hello, ez itt az első storym</p>");
-
-        Story story2 = new Story();
-        story2.setTitle("Második sztori");
-        story2.setPosted(new Date());
-        story2.setAuthor("Én");
-        story2.setContent("<p>Hello, ez itt a második storym</p>");
-
-        stories.add(story1);
-        stories.add(story2);
+//        Story story1 = new Story();
+//        story1.setTitle("Első sztori");
+//        story1.setPosted(new Date());
+//        story1.setAuthor("Én");
+//        story1.setContent("<p>Hello, ez itt az első storym</p>");
+//
+//        Story story2 = new Story();
+//        story2.setTitle("Második sztori");
+//        story2.setPosted(new Date());
+//        story2.setAuthor("Én");
+//        story2.setContent("<p>Hello, ez itt a második storym</p>");
+//
+//        stories.add(story1);
+//        stories.add(story2);
 
         return stories;
     }

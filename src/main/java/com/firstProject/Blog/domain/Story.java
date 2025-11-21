@@ -1,14 +1,22 @@
 package com.firstProject.Blog.domain;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
 public class Story {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String content;
     private Date posted;
-    private String author;
+    @ManyToOne
+    private Blogger blogger;
 
-    public Story() {
+    private Story() {
     }
 
     public String getTitle() {
@@ -35,17 +43,25 @@ public class Story {
         this.posted = posted;
     }
 
-    public String getAuthor() {
-        return author;
+    public Blogger getBlogger() {
+        return blogger;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setBlogger(Blogger blogger) {
+        this.blogger = blogger;
     }
 
     @Override
     public String toString() {
         return "Story{" +
                 "title='" + title + "}";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
