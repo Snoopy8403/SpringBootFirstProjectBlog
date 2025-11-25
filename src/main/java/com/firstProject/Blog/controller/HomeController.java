@@ -1,6 +1,8 @@
 package com.firstProject.Blog.controller;
 
 import com.firstProject.Blog.domain.Story;
+import com.firstProject.Blog.repository.StoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,10 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    StoryRepository storyRepository;
 
     @RequestMapping("/")
     public String stories(Model model, Locale locale){
@@ -29,23 +35,8 @@ public class HomeController {
     else return "user";
     }
 
-    private ArrayList<Story> getStories(){
-        ArrayList<Story> stories = new ArrayList<>();
-
-//        Story story1 = new Story();
-//        story1.setTitle("Első sztori");
-//        story1.setPosted(new Date());
-//        story1.setAuthor("Én");
-//        story1.setContent("<p>Hello, ez itt az első storym</p>");
-//
-//        Story story2 = new Story();
-//        story2.setTitle("Második sztori");
-//        story2.setPosted(new Date());
-//        story2.setAuthor("Én");
-//        story2.setContent("<p>Hello, ez itt a második storym</p>");
-//
-//        stories.add(story1);
-//        stories.add(story2);
+    private List<Story> getStories(){
+        List<Story> stories = storyRepository.findAll();
 
         return stories;
     }
