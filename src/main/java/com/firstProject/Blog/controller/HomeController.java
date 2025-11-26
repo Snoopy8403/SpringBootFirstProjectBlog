@@ -25,8 +25,6 @@ public class HomeController {
         this.storyService = storyService;
     }
 
-
-
     @RequestMapping("/")
     public String stories(Model model, Locale locale){
         model.addAttribute("pageTitle", "Minden napra egy stori");
@@ -35,13 +33,20 @@ public class HomeController {
         return "stories";
     }
 
-    @RequestMapping("/user/{id}")
-    public String searchForUser(@PathVariable(value = "id") String id) throws Exception{
-    if (id == null){
-        throw new Exception("Nincs ilyen ID-val felhasználó!");
-        }
-    else return "user";
+    @RequestMapping("/story")
+    public String story(Model model){
+        model.addAttribute("pageTitle", "Minden napra egy stori");
+        model.addAttribute("story", storyService. getStory());
+        return "story";
     }
+
+//    @RequestMapping("/user/{id}")
+//    public String searchForUser(@PathVariable(value = "id") String id) throws Exception{
+//    if (id == null){
+//        throw new Exception("Nincs ilyen ID-val felhasználó!");
+//        }
+//    else return "user";
+//    }
 
 
 }

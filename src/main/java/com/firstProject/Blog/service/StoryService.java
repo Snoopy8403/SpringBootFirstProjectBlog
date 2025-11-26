@@ -31,12 +31,16 @@ public class StoryService {
         return storyRepository.findAll();
     }
 
-    @PostConstruct
-    public void init(){
-        Blogger blogger = new Blogger("Sanyi", 33);
-        bloggerRepository.save(blogger);
-
-        Story story = new Story("Az én sztorim", "Ez egy másik sztori aminek ez a lesírása", new Date(), blogger);
-        storyRepository.save(story);
+    public Story getStory(){
+        return storyRepository.findFirstByOrderByIdAsc();
     }
+
+//    @PostConstruct
+//    public void init(){
+//        Blogger blogger = new Blogger("Sanyi", 33);
+//        bloggerRepository.save(blogger);
+//
+//        Story story = new Story("Az én sztorim", "Ez egy másik sztori aminek ez a lesírása", new Date(), blogger);
+//        storyRepository.save(story);
+//    }
  }
