@@ -8,5 +8,7 @@ import java.util.List;
 public interface StoryRepository extends CrudRepository<Story, Long> {
 
     List<Story> findAll();
-    Story findFirstByOrderByIdAsc();
+    Story findFirstByOrderByPostedDesc();
+
+    Story findByTitle(String title);
 }

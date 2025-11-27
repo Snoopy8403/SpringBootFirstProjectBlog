@@ -40,13 +40,14 @@ public class HomeController {
         return "story";
     }
 
-//    @RequestMapping("/user/{id}")
-//    public String searchForUser(@PathVariable(value = "id") String id) throws Exception{
-//    if (id == null){
-//        throw new Exception("Nincs ilyen ID-val felhasználó!");
-//        }
-//    else return "user";
-//    }
-
-
+    @RequestMapping("/story/{title}")
+    public String searchForUser(@PathVariable(value = "title") String title, Model model) throws Exception{
+    if (title == null){
+        throw new Exception("Nincs ilyen címmel sztori!");
+        }
+    else {
+        model.addAttribute("story", storyService.getSpecificStory(title));
+        return "story";
+        }
+    }
 }

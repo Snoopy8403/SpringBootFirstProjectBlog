@@ -32,7 +32,11 @@ public class StoryService {
     }
 
     public Story getStory(){
-        return storyRepository.findFirstByOrderByIdAsc();
+        return storyRepository.findFirstByOrderByPostedDesc();
+    }
+
+    public Story getSpecificStory(String title){
+        return storyRepository.findByTitle(title);
     }
 
 //    @PostConstruct
