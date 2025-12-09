@@ -1,0 +1,11 @@
+insert into blogger (age, name) values (21, 'Gyula');
+insert into blogger (age, name) values (26, 'Krisz');
+
+insert into story (title, content, posted, blogger_id)
+values ('Teszt cím', 'Teszt tartalom', CURRENT_DATE, (select id from blogger where name = 'Gyula'));
+
+insert into story (title, content, posted, blogger_id)
+values ('Teszt cím 2', 'Teszt tartalom 2', CURRENT_DATE, (select id from blogger where name = 'Krisz'));
+
+insert into story (title, content, posted, blogger_id)
+values ('Teszt cím 3', 'Teszt tartalom 3', CURRENT_DATE, (select id from blogger where name = 'Gyula'));
